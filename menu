@@ -1,0 +1,33 @@
+new_menu = {}
+
+print "Welcome to your menu program!"
+
+while True:
+    menu_item = raw_input("Enter the name of the dish: ")
+    price = raw_input("What is the price of %s? " % menu_item)
+    new_menu[menu_item] = price
+
+    new = raw_input("Add another dish? (y/n) ")
+
+    if new == "y":
+        new_menu[menu_item] = price
+
+    if new == "n":
+        break
+
+print "Your new menu: %s" % new_menu
+
+File = open('Menu.txt', 'wt')
+
+Menu = new_menu
+
+for item in Menu:
+    File.write(item)
+    File.write(' - ')
+    File.write(price)
+    File.write(' Euro')
+    File.write("\n")
+
+File.close
+
+print "Goodbye!"
